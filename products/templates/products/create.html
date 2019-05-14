@@ -1,0 +1,32 @@
+{% extends 'theme.html' %}
+{% block content %}
+<h1>Create</h1>
+    <div class="row">
+    <div class="col-sm-6 text-centre">
+     <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                 <div class="form-group">
+				  <label class="control-label" for="">Title</label>
+				  <input type="text" class="form-control" name="title" placeholder="title">
+				</div>
+                 <div class="form-group">
+				  <label class="control-label" for="">Body</label>
+				  <input type="textBox" name="body" class="form-control">
+				</div>
+           <div class="form-group">
+				  <label class="control-label" for="">Url</label>
+				  <input type="text" name="url" class="form-control">
+				</div>
+           <div class="form-group">
+				  <label class="control-label" for="">Icon</label>
+				  <input type="file" name="icon" class="form-control">
+				</div>
+         <div class="form-group">
+				  <label class="control-label" for="">Image</label>
+				  <input type="file" name="image" class="form-control">
+				</div>
+                    <input type="submit" value="Login!">
+                </form>
+    </div>
+    </div>
+{%endblock %}

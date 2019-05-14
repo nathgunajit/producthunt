@@ -1,0 +1,29 @@
+{% extends 'theme.html' %}
+{% block content %}
+    <div class="row">
+    <div class="col-md-8">
+     <img src="{{ product.image.url }}" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <a href="javascript:{document.getElementById('upvote').submit()}"><button class="btn btn-primary btn-lg btn-block"><i class="fa fa-caret-up"></i>Upvote{{ product.votes_total }} </button></a>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-4">
+        <h4>Hunter By {{ product.hunter.usename }}</h4>
+    </div>
+    <div class="col-md-4 text-right">
+    <h4>Hunter By {{ product.pretty_date }}</h4>
+    </div>
+    </div>
+     <div class="row">
+         <div class="col-md-12">
+        {{ product.body }}
+        </div>
+     </div>
+    <form action="{% url 'upvote' product.id %}" method="post" id="upvote">
+    {% csrf_token %}
+    <input type="hidden">
+    </form>
+{%endblock %}
